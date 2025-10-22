@@ -9,6 +9,8 @@ import userRoutes from './routes/users.js';
 import jobRoutes from './routes/jobs.js';
 import notificationRoutes from './routes/notifications.js';
 import websocketRoutes from './routes/websocket.js';
+import paymentRoutes from './routes/payments.js';
+
 // Import other routes as we create them
 // import customerRoutes from './routes/customers.js';
 // import paymentRoutes from './routes/payments.js';
@@ -48,6 +50,7 @@ app.use('/api/users', userRoutes);
 app.use('/api/jobs', jobRoutes);
 app.use('/api/notifications', notificationRoutes);
 app.use('/api/websocket', websocketRoutes);
+app.use('/api/payments', paymentRoutes);
 // Add other routes as we create them
 // app.use('/api/customers', customerRoutes);
 // app.use('/api/payments', paymentRoutes);

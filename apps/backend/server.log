@@ -1,0 +1,45 @@
+
+> backend@1.0.0 dev
+> nodemon src/index.js
+
+[33m[nodemon] 3.1.10[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): *.*[39m
+[33m[nodemon] watching extensions: js,mjs,cjs,json[39m
+[32m[nodemon] starting `node src/index.js`[39m
+node:internal/modules/esm/resolve:842
+  throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+        ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find package '@/bcryptjs' imported from C:\Users\Administrator\Documents\ROWLAND\print-press-management-app\apps\backend\src\controllers\authController.js
+    at packageResolve (node:internal/modules/esm/resolve:842:9)
+    at moduleResolve (node:internal/modules/esm/resolve:915:18)
+    at defaultResolve (node:internal/modules/esm/resolve:1124:11)
+    at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:557:12)
+    at ModuleLoader.resolve (node:internal/modules/esm/loader:526:25)
+    at ModuleLoader.getModuleJob (node:internal/modules/esm/loader:249:38)
+    at ModuleJob._link (node:internal/modules/esm/module_job:126:49) {
+  code: 'ERR_MODULE_NOT_FOUND'
+}
+
+Node.js v22.5.1
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting child process[39m
+[32m[nodemon] starting `node src/index.js`[39m
+node:internal/modules/esm/resolve:842
+  throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+        ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find package '@/bcryptjs' imported from C:\Users\Administrator\Documents\ROWLAND\print-press-management-app\apps\backend\src\controllers\authController.js
+    at packageResolve (node:internal/modules/esm/resolve:842:9)
+    at moduleResolve (node:internal/modules/esm/resolve:915:18)
+    at defaultResolve (node:internal/modules/esm/resolve:1124:11)
+    at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:557:12)
+    at ModuleLoader.resolve (node:internal/modules/esm/loader:526:25)
+    at ModuleLoader.getModuleJob (node:internal/modules/esm/loader:249:38)
+    at ModuleJob._link (node:internal/modules/esm/module_job:126:49) {
+  code: 'ERR_MODULE_NOT_FOUND'
+}
+
+Node.js v22.5.1
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m

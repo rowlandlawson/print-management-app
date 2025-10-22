@@ -1,7 +1,7 @@
-import bcrypt from '@/bcryptjs';
+import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import crypto from 'crypto';
-import { pool } from '@/config/database.js';
+import { pool } from '../config/database.js';
 
 /**
  * @desc Admin login only (email or username)

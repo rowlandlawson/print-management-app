@@ -1,11 +1,11 @@
-import WebSocket from 'ws';
+import { WebSocketServer } from 'ws';
 import jwt from 'jsonwebtoken';
 
 const connectedAdmins = new Set();
-const connectedUsers = new Map(); // Map to track user connections
+const connectedUsers = new Map();
 
 export function setupNotificationWebSocket(server) {
-  const wss = new WebSocket.Server({ server, path: '/ws/notifications' });
+  const wss = new WebSocketServer({ server, path: '/ws/notifications' });
 
   wss.on('connection', (ws, request) => {
     console.log('🔌 New WebSocket connection attempt');
@@ -45,7 +45,6 @@ export function setupNotificationWebSocket(server) {
               ws.send(JSON.stringify({ type: 'pong', timestamp: new Date().toISOString() }));
               break;
             case 'subscribe':
-              // Handle subscription to specific notification types
               ws.send(JSON.stringify({ 
                 type: 'subscribed', 
                 channels: data.channels,
@@ -74,7 +73,7 @@ export function setupNotificationWebSocket(server) {
         console.error('WebSocket error:', error);
       });
 
-      // Send welcome message with user info
+      // Send welcome message
       ws.send(JSON.stringify({
         type: 'connected',
         message: 'Successfully connected to notification server',
@@ -104,7 +103,7 @@ export function broadcastToAdmins(message) {
   
   let sentCount = 0;
   connectedAdmins.forEach(admin => {
-    if (admin.readyState === WebSocket.OPEN) {
+    if (admin.readyState === 1) { // 1 = OPEN
       admin.send(messageString);
       sentCount++;
     }
@@ -121,7 +120,7 @@ export function broadcastToUser(userId, message) {
   
   let sent = false;
   connectedUsers.forEach((user, ws) => {
-    if (user.userId === userId && ws.readyState === WebSocket.OPEN) {
+    if (user.userId === userId && ws.readyState === 1) {
       ws.send(messageString);
       sent = true;
     }
@@ -133,7 +132,7 @@ export function broadcastToUser(userId, message) {
 export function getConnectedUsers() {
   const users = [];
   connectedUsers.forEach((user, ws) => {
-    if (ws.readyState === WebSocket.OPEN) {
+    if (ws.readyState === 1) {
       users.push({
         id: user.userId,
         name: user.name,
@@ -149,7 +148,7 @@ export function getConnectedAdmins() {
   const admins = [];
   connectedAdmins.forEach(ws => {
     const user = connectedUsers.get(ws);
-    if (user && ws.readyState === WebSocket.OPEN) {
+    if (user && ws.readyState === 1) {
       admins.push({
         id: user.userId,
         name: user.name,
