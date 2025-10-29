@@ -12,7 +12,13 @@ import websocketRoutes from './routes/websocket.js';
 import paymentRoutes from './routes/payments.js';
 import inventoryRoutes from './routes/inventory.js';
 import operationalExpensesRoutes from './routes/operationalExpenses.js';
-import customerRoutes from './routes/customers.js';
+import materialRoutes from './routes/material.js'
+
+// Import other routes as we create them
+// import customerRoutes from './routes/customers.js';
+// import paymentRoutes from './routes/payments.js';
+// import inventoryRoutes from './routes/inventory.js';
+// import reportRoutes from './routes/reports.js';
 
 // Import WebSocket
 import { setupNotificationWebSocket } from './websocket/notificationServer.js';
@@ -48,9 +54,13 @@ app.use('/api/jobs', jobRoutes);
 app.use('/api/notifications', notificationRoutes);
 app.use('/api/websocket', websocketRoutes);
 app.use('/api/payments', paymentRoutes);
-app.use('/api/inventory', inventoryRoutes);
-app.use('/api/operational-expenses', operationalExpensesRoutes);
-app.use('/api/customers', customerRoutes);
+app.use
+
+// Add other routes as we create them
+// app.use('/api/customers', customerRoutes);
+// app.use('/api/payments', paymentRoutes);
+// app.use('/api/inventory', inventoryRoutes);
+// app.use('/api/reports', reportRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {
@@ -63,16 +73,13 @@ app.get('/api/health', (req, res) => {
 
 // Start server
 const server = app.listen(PORT, () => {
-  console.log(`��� Server running on port ${PORT}`);
-  console.log(`��� Environment: ${process.env.NODE_ENV}`);
-  console.log(`��� Health check: http://localhost:${PORT}/api/health`);
-  console.log(`��� User management: http://localhost:${PORT}/api/users`);
-  console.log(`��� Job management: http://localhost:${PORT}/api/jobs`);
-  console.log(`�� Notifications: http://localhost:${PORT}/api/notifications`);
-  console.log(`��� WebSocket: ws://localhost:${PORT}/ws/notifications`);
-  console.log(`��� Payments: http://localhost:${PORT}/api/payments`);
-  console.log(`��� Inventory: http://localhost:${PORT}/api/inventory`);
-  console.log(`��� Expenses: http://localhost:${PORT}/api/operational-expenses`);
+  console.log(`🚀 Server running on port ${PORT}`);
+  console.log(`📊 Environment: ${process.env.NODE_ENV}`);
+  console.log(`🔗 Health check: http://localhost:${PORT}/api/health`);
+  console.log(`👥 User management: http://localhost:${PORT}/api/users`);
+  console.log(`📋 Job management: http://localhost:${PORT}/api/jobs`);
+  console.log(`🔔 Notifications: http://localhost:${PORT}/api/notifications`);
+  console.log(`🔌 WebSocket: ws://localhost:${PORT}/ws/notifications`);
 });
 
 // Setup WebSocket for real-time notifications
