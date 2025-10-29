@@ -13,6 +13,7 @@ import paymentRoutes from './routes/payments.js';
 import inventoryRoutes from './routes/inventory.js';
 import operationalExpensesRoutes from './routes/operationalExpenses.js';
 import customerRoutes from './routes/customers.js';
+import reportRoutes from './routes/reports.js';
 
 // Import WebSocket
 import { setupNotificationWebSocket } from './websocket/notificationServer.js';
@@ -51,6 +52,7 @@ app.use('/api/payments', paymentRoutes);
 app.use('/api/inventory', inventoryRoutes);
 app.use('/api/operational-expenses', operationalExpensesRoutes);
 app.use('/api/customers', customerRoutes);
+app.use('/api/reports', reportRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {
